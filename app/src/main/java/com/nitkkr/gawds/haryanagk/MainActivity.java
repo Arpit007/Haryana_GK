@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Database database=new Database(this);
 
         Button button3=(Button)findViewById(R.id.button3);
         button3.setOnClickListener(new View.OnClickListener() {

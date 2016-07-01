@@ -21,8 +21,10 @@ public class ContentActivity extends AppCompatActivity {
         TypedArray icons = getResources().obtainTypedArray(R.array.Main_image_list);
 
         ListView listView=(ListView)findViewById(R.id.main_content_list);
-        listView.setAdapter(new Main_List_Adapter(this, R.layout.main_list_item,
-                options, icons));
+        /*listView.setAdapter(new Main_List_Adapter(this, R.layout.main_list_item,
+                options, icons));*/
+        listView.setAdapter(new MainListAdapter(this, R.layout.main_list_item,
+                new String[0], null));
         /*ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1, options);
         listView.setAdapter(adapter);

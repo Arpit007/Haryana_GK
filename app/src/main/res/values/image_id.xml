@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="Main_strings">
-        <item>Hello</item>
-        <item>world</item>
-        <item>from</item>
-        <item>Me</item>
-    </string-array>
-
-    <array name="Main_image_list">
+    <array name="ImageID">
         <item>@drawable/a1</item>
         <item>@drawable/d1</item>
         <item>@drawable/h1</item>
