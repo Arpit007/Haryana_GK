@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Haryana GK</string>
+    <string name="email_address">Sunilbattan@gmail.com</string>
+    <string name="GK_Topic">General Knowledge: Topics</string>
+    <string name="About_Text">
+        Haryana GK
+        \nAbout Text Goes Here
+    </string>
+</resources>
