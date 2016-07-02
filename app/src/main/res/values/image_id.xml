@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <array name="ImageID">
-        <item>@drawable/a1</item>
-        <item>@drawable/d1</item>
-        <item>@drawable/h1</item>
-        <item>@drawable/j1</item>
-    </array>
-</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nitkkr.gawds.haryanagk.SubContentActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/e2"
+        android:scaleType="center" />
+
+    <ListView
+        android:id="@+id/SubList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:divider="#000000"
+        android:clickable="true"
+        android:dividerHeight="1dp"
+        android:drawSelectorOnTop="true"></ListView>
+</RelativeLayout>

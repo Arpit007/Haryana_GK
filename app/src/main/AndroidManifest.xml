@@ -28,11 +28,31 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ContentActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".ContentActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.HaryanaGK.GK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SubContentActivity"
+            android:parentActivityName=".ContentActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.HaryanaGK.SubContent" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuestionViewActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".SubContentActivity">
+            <intent-filter>
+                <action android:name="com.HaryanaGK.Question" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter></activity>

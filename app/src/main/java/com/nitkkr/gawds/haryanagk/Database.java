@@ -5,15 +5,12 @@ package com.nitkkr.gawds.haryanagk;
  */
 
 import android.content.Context;
-import android.content.res.AssetManager;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import java.io.File;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -21,9 +18,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class Database
 {
-    int ImageCount;
     Context context;
-    String FileName="database.xml";
+    String FileName= "Questions/database.xml";
     public ArrayList<QuestionCategory> questionCategory;
 
     static Database database;
@@ -31,9 +27,8 @@ public class Database
     public Database(Context context)
     {
         this.context=context;
-        ImageCount=context.getResources().obtainTypedArray(R.array.ImageID).length();
         database=this;
-        questionCategory=new ArrayList<QuestionCategory>();
+        questionCategory=new ArrayList<>();
         getData();
     }
 
@@ -47,63 +42,71 @@ public class Database
                     Document doc = dBuilder.parse(context.getAssets().open(FileName));
                     doc.getDocumentElement().normalize();
 
-                    NodeList nList = doc.getElementsByTagName("Category");
+                    NodeList fileList=doc.getElementsByTagName("FileName");
 
-                    String Name,Description;
-                    int ImageId;
-
-                    for (int temp = 0; temp < nList.getLength(); temp++)
+                    for(int FileIndex=0;FileIndex<fileList.getLength();FileIndex++)
                     {
+                        String QuestionFileName=null;
+                        Node FileNode=fileList.item(FileIndex);
 
-                        Node nNode = nList.item(temp);
+                        if(FileNode.getNodeType()==Node.ELEMENT_NODE)
+                        {
+                            Element element=(Element)FileNode;
+                            QuestionFileName=element.getChildNodes().item(0).getTextContent();
+                        }
 
-                        if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                            Element eElement = (Element) nNode;
+                        if(QuestionFileName!=null)
+                        {
+                            DocumentBuilderFactory dataFactory
+                                    = DocumentBuilderFactory.newInstance();
+                            DocumentBuilder dataBuilder = dataFactory.newDocumentBuilder();
+                            Document datadoc = dataBuilder.parse(context.getAssets().open("Questions/"+QuestionFileName));
+                            datadoc.getDocumentElement().normalize();
 
-                            Name=eElement.getAttribute("Name");
-                            Description=eElement.getAttribute("Description");
-                            ImageId=Integer.parseInt(eElement.getAttribute("ImageID"));
+                            String Name,Description,ImageFile;
 
-                            QuestionCategory Category=new QuestionCategory(Name,Description,ImageId);
+                            Node CategoryNode=datadoc.getChildNodes().item(0);
 
-                            NodeList itemList=((Element) nNode).getElementsByTagName("Item");
-
-                            String Question, Answer;
-
-                            for(int x=0;x<itemList.getLength();x++)
+                            if (CategoryNode.getNodeType() == Node.ELEMENT_NODE)
                             {
-                                Node itemNode=itemList.item(x);
-                                if(itemNode.getNodeType()==Node.ELEMENT_NODE)
+                                Element element = (Element) CategoryNode;
+                                Name=element.getAttribute("Name");
+                                Description=element.getAttribute("Description");
+                                ImageFile="Images/"+element.getAttribute("ImageName");
+
+                                QuestionCategory Category=new QuestionCategory(Name,Description,ImageFile);
+
+                                NodeList QuestionList=element.getElementsByTagName("Item");
+
+                                String Question, Answer;
+
+                                for(int x=0;x<QuestionList.getLength();x++)
                                 {
-                                    Element element=(Element)itemNode;
-                                    Question=element.getElementsByTagName("Question").item(0).getTextContent();
-                                    Answer=element.getElementsByTagName("Answer").item(0).getTextContent();
-                                    Category.AddQuestion(Question,Answer);
+                                    Node itemNode=QuestionList.item(x);
+                                    if(itemNode.getNodeType()==Node.ELEMENT_NODE)
+                                    {
+                                        Element myelement=(Element)itemNode;
+                                        Question=myelement.getElementsByTagName("Question").item(0).getTextContent();
+                                        Answer=myelement.getElementsByTagName("Answer").item(0).getTextContent();
+                                        Category.AddQuestion(Question,Answer);
+                                    }
                                 }
+                                questionCategory.add(Category);
                             }
-                            questionCategory.add(Category);
                         }
                     }
-                    int u=Integer.parseInt("12");
                 } catch (Exception e)
                 {
                     e.printStackTrace();
                 }
 
     }
-
-    public int getImageID(int ImageID)
-    {
-        if(ImageID>=ImageCount)
-            return 0;
-        return ImageID;
-    }
 }
 
 
 class QuestionCategory
 {
-    private class Question
+    class Question
     {
         String Problem;
         String Solution;
@@ -113,19 +116,27 @@ class QuestionCategory
             this.Problem=Problem;
             this.Solution=Solution;
         }
+
+        public String getProblem()
+        {
+            return Problem;
+        }
+        public String getSolution() {
+            return Solution;
+        }
     }
 
     ArrayList<Question> questions;
     String Name;
     String Description;
-    int ImageId;
+    String ImageFile;
 
-    public QuestionCategory(String Name, String Description, int ImageId)
+    public QuestionCategory(String Name, String Description, String ImageFile)
     {
-        questions=new ArrayList<Question>();
+        questions=new ArrayList<>();
         this.Name=Name;
         this.Description=Description;
-        this.ImageId=Database.database.getImageID(ImageId);
+        this.ImageFile=ImageFile;
     }
 
     public void AddQuestion(String Question, String Answer)
