@@ -24,6 +24,5 @@
         android:layout_centerVertical="true"
         android:textColor="#ffffff"
         android:textSize="20dp"
-        android:layout_above="@id/main_list_item_text"
-        android:textStyle="bold" />
+        android:layout_above="@id/main_list_item_text"/>
 </RelativeLayout>

@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
-    <Category Name="Hello" Description="Introduction" ImageName="a1.jpg">
+    <Category Name="Modern Haryana" Description="1900AD-Present" ImageName="j1.jpg">
+        <Item>
+            <Question>When was Haryana formed?</Question>
+            <Answer>1st November, 1966</Answer>
+        </Item>
         <Item>
             <Question>I am?</Question>
             <Answer>Indian</Answer>
