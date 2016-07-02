@@ -56,22 +56,22 @@ For each Question Category file, each Category has a Name, Description, and an I
 
 So sample file File1.xml
 
-<?xml version="1.0"?>
-    <Category Name="Modern Haryana" Description="1900AD-Present" ImageName="a1.jpg">
-        <Item>
-            <Question>When was Haryana formed?</Question>
-            <Answer>1st November, 1966</Answer>
-        </Item>
-        <Item>
-            <Question>I am?</Question>
-            <Answer>Indian</Answer>
-        </Item>
-        <Item>
-            <Question>My Name is?</Question>
-            <Answer>Random123</Answer>
-        </Item>
-        <Item>
-            <Question>I live in?</Question>
-            <Answer>Gurgaon, Haryana</Answer>
-        </Item>
-    </Category>
+    <?xml version="1.0"?>
+        <Category Name="Modern Haryana" Description="1900AD-Present" ImageName="a1.jpg">
+            <Item>
+                <Question>When was Haryana formed?</Question>
+                <Answer>1st November, 1966</Answer>
+            </Item>
+            <Item>
+                <Question>I am?</Question>
+                <Answer>Indian</Answer>
+            </Item>
+            <Item>
+                <Question>My Name is?</Question>
+                <Answer>Random123</Answer>
+            </Item>
+            <Item>
+                <Question>I live in?</Question>
+                <Answer>Gurgaon, Haryana</Answer>
+            </Item>
+        </Category>
