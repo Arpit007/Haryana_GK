@@ -33,7 +33,7 @@
         android:layout_centerHorizontal="true" />
     <Button
         android:id="@+id/FB"
-        android:text="Developed By: Arpit Bhatnagar\nTap to Join on Facebook!"
+        android:text="Developed By: Arpit Bhatnagar\nJoin on Facebook!"
         android:background="#7cd4d4d4"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent" android:layout_height="wrap_content"
