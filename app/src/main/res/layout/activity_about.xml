@@ -12,13 +12,13 @@
         android:scaleType="centerCrop" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:id="@+id/imageView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:src="@mipmap/ic_launcher"/>
+        android:layout_marginTop="60dp"
+        android:src="@drawable/logo"/>
 
     <TextView
         android:layout_width="350dp"
@@ -29,8 +29,16 @@
         android:layout_marginTop="50dp"
         android:textSize="20dp"
         android:textAlignment="center"
-        android:background="@drawable/about_text_background"
+        android:background="@drawable/about_text_background_style"
         android:layout_centerHorizontal="true" />
+    <Button
+        android:id="@+id/FB"
+        android:text="Developed By: Arpit Bhatnagar\nTap to Join on Facebook!"
+        android:background="#7cd4d4d4"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" android:textSize="12dp"/>
 
 
 </RelativeLayout>

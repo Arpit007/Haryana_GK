@@ -86,8 +86,8 @@ public class Database
                                     if(itemNode.getNodeType()==Node.ELEMENT_NODE)
                                     {
                                         Element myelement=(Element)itemNode;
-                                        Question=myelement.getElementsByTagName("Question").item(0).getTextContent();
-                                        Answer=myelement.getElementsByTagName("Answer").item(0).getTextContent();
+                                        Question=myelement.getElementsByTagName("Question").item(0).getTextContent().trim().replaceAll(" +", " ");
+                                        Answer=(myelement.getElementsByTagName("Answer").item(0).getTextContent()).trim().replaceAll(" +", " ");
                                         Category.AddQuestion(Question,Answer);
                                     }
                                 }

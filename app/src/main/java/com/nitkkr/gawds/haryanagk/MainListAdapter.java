@@ -64,9 +64,6 @@ public class MainListAdapter extends ArrayAdapter<String>
         TextView tv = (TextView)convertView.findViewById(R.id.main_list_item_text);
         tv.setText(Database.database.questionCategory.get(position).Name);
 
-        TextView tv1 = (TextView)convertView.findViewById(R.id.main_list_item_text_desc);
-        tv1.setText(Database.database.questionCategory.get(position).Description);
-
         return convertView;
     }
 

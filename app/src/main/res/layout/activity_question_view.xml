@@ -1,70 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="16dp"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    tools:context="com.nitkkr.gawds.haryanagk.QuestionViewActivity"
-    android:background="#c4c4c4"
-    android:clickable="false">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="20dp"
+                android:paddingBottom="15dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                tools:context="com.nitkkr.gawds.haryanagk.QuestionViewActivity"
+                android:background="#303e74"
+                android:clickable="false">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingRight="5dp"
-        android:paddingLeft="5dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        android:background="#ffffff">
+        android:background="@drawable/question_card_style">
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.6"
-            android:background="@android:color/holo_blue_dark">
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content">
             <ImageButton
                 android:id="@+id/backButton"
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_alignParentLeft="true"
                 android:scaleType="center"
                 android:src="@drawable/back_button"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
             <ImageButton
                 android:id="@+id/forwardButton"
-                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_alignParentRight="true"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:scaleType="center"
                 android:src="@drawable/forward_button"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
+            <LinearLayout
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/QuestionNum"
+                    android:text="01"
+                    android:textStyle="bold"
+                    android:paddingRight="5dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textSize="17dp" android:textColor="#22046f"/>
+                <TextView
+                    android:id="@+id/QuestionLimit"
+                    android:text="/100"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6">
+            <ImageView
+                android:id="@+id/QuestionImage"
+                android:layout_width="match_parent" android:layout_height="match_parent"
+                android:scaleType="fitXY" android:tint="#4b000000" android:tintMode="src_atop"/>
             <TextView
                 android:id="@+id/QuestionText"
-                android:layout_centerInParent="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textColor="#ffffff"
                 android:textStyle="bold"
                 android:paddingLeft="15dp"
-                android:paddingRight="15dp" />
+                android:paddingRight="15dp"
+                android:paddingBottom="5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true" android:layout_alignParentStart="true"/>
         </RelativeLayout>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="20dp"
+            android:paddingTop="15dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="15dp"
             android:layout_weight="0.4">
             <TextView
                 android:id="@+id/AnswerText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="#000000"
                 android:paddingLeft="15dp"
-                android:paddingRight="15dp" />
+                android:paddingRight="15dp"/>
         </ScrollView>
+
 
     </LinearLayout>
 

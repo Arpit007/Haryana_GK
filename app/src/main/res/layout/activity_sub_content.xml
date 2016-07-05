@@ -8,8 +8,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/e2"
-        android:scaleType="center" />
+        android:scaleType="fitXY" android:src="@drawable/e"
+        android:tint="#54d4d4d4" android:tintMode="src_over"/>
 
     <ListView
         android:id="@+id/SubList"
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:divider="#000000"
+        android:divider="#b7d4d4d4"
         android:clickable="true"
         android:dividerHeight="1dp"
         android:drawSelectorOnTop="true"></ListView>

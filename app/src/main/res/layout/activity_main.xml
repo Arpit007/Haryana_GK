@@ -12,13 +12,13 @@
         android:scaleType="centerCrop" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/imageView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
-        android:src="@mipmap/ic_launcher"/>
+        android:layout_marginTop="55dp"
+        android:src="@drawable/logo"/>
 
     <Button
         android:layout_width="wrap_content"
