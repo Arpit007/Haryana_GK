@@ -25,7 +25,6 @@ public class ContentActivity extends AppCompatActivity {
 
         listView.setAdapter(new MainListAdapter(this, R.layout.main_list_item,
                 new String[0], null));
-        listView.setFastScrollEnabled(true);
         listView.setOverScrollMode(AbsListView.OVER_SCROLL_IF_CONTENT_SCROLLS);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

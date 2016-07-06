@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     tools:context="com.nitkkr.gawds.haryanagk.SubContentActivity">
 
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitXY" android:src="@drawable/e"
+        android:scaleType="centerCrop" android:src="@drawable/a1"
         android:tint="#54d4d4d4" android:tintMode="src_over"/>
 
     <ListView
@@ -20,5 +20,5 @@
         android:divider="#b7d4d4d4"
         android:clickable="true"
         android:dividerHeight="1dp"
-        android:drawSelectorOnTop="true"></ListView>
+        android:drawSelectorOnTop="true"/>
 </RelativeLayout>

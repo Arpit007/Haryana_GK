@@ -3,14 +3,19 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="20dp"
-                android:paddingBottom="15dp"
-                android:paddingLeft="25dp"
-                android:paddingRight="25dp"
                 tools:context="com.nitkkr.gawds.haryanagk.QuestionViewActivity"
                 android:background="#303e74"
                 android:clickable="false">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/b1"
+        android:scaleType="centerCrop" />
     <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,16 +44,14 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:id="@+id/QuestionNum"
-                    android:text="01"
                     android:textStyle="bold"
                     android:paddingRight="5dp"
                     android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:textSize="17dp" android:textColor="#22046f"/>
+                    android:textSize="17sp" android:textColor="#22046f"/>
                 <TextView
                     android:id="@+id/QuestionLimit"
-                    android:text="/100"
                     android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:textSize="15dp"/>
+                    android:textSize="15sp"/>
             </LinearLayout>
 
         </RelativeLayout>
@@ -56,15 +59,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.6">
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/QuestionImage"
                 android:layout_width="match_parent" android:layout_height="match_parent"
-                android:scaleType="fitXY" android:tint="#4b000000" android:tintMode="src_atop"/>
+                android:scaleType="fitXY" android:tint="#31000000" android:tintMode="src_atop"/>
             <TextView
                 android:id="@+id/QuestionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textColor="#ffffff"
                 android:textStyle="bold"
                 android:paddingLeft="15dp"
@@ -76,7 +79,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="15dp"
+            android:paddingTop="25dp"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:paddingBottom="15dp"
@@ -85,7 +88,7 @@
                 android:id="@+id/AnswerText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
+                android:textSize="18sp"
                 android:textColor="#000000"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"/>

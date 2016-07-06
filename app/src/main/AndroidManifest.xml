@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nitkkr.gawds.haryanagk">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -21,7 +22,11 @@
         <activity
             android:name=".AboutActivity"
             android:parentActivityName=".MainActivity"
+            android:theme="@style/AboutTheme"
             android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitkkr.gawds.haryanagk.MainActivity"/>
             <intent-filter>
                 <action android:name="com.HaryanaGK.About" />
 
@@ -31,7 +36,11 @@
         <activity
             android:name=".ContentActivity"
             android:parentActivityName=".MainActivity"
+            android:theme="@style/MainItemTheme"
             android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitkkr.gawds.haryanagk.MainActivity"/>
             <intent-filter>
                 <action android:name="com.HaryanaGK.GK" />
 
@@ -41,7 +50,11 @@
         <activity
             android:name=".SubContentActivity"
             android:parentActivityName=".ContentActivity"
+            android:theme="@style/subItemTheme"
             android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitkkr.gawds.haryanagk.ContentActivity"/>
             <intent-filter>
                 <action android:name="com.HaryanaGK.SubContent" />
 
@@ -49,13 +62,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".QuestionViewActivity"
+                  android:theme="@style/QuestionTheme"
             android:screenOrientation="portrait"
             android:parentActivityName=".SubContentActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitkkr.gawds.haryanagk.SubContentActivity"/>
             <intent-filter>
                 <action android:name="com.HaryanaGK.Question" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter></activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

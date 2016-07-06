@@ -48,7 +48,7 @@ public class QuestionViewActivity extends AppCompatActivity {
 
     void setQuestion(int SubCategoryID, int QuestionID)
     {
-        setTitle("Question "+(Index+1));
+        setTitle(Database.database.questionCategory.get(SubCategoryID).Name);
 
         int numQuestion=Database.database.questionCategory.get(SubCategoryID).questions.size();
 
@@ -75,17 +75,21 @@ public class QuestionViewActivity extends AppCompatActivity {
         {
             ImageView iv = (ImageView)findViewById(R.id.QuestionImage);
             iv.setImageDrawable(Drawable.createFromStream(getAssets().open(Database.database.questionCategory.get(SubCategoryID).ImageFile), null));
+
+            TextView questionText=(TextView)findViewById(R.id.QuestionText);
+            TextView answerText=(TextView)findViewById(R.id.AnswerText);
+
+            questionText.setText(Database.database.questionCategory.get(SubCategoryID).questions.get(QuestionID).getProblem());
+            answerText.setText(getResources().getString(R.string.Ans)+": "+ Database.database.questionCategory.get(SubCategoryID).questions.get(QuestionID).getSolution());
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
-
-        TextView questionText=(TextView)findViewById(R.id.QuestionText);
-        TextView answerText=(TextView)findViewById(R.id.AnswerText);
-
-        questionText.setText(Database.database.questionCategory.get(SubCategoryID).questions.get(QuestionID).getProblem());
-        answerText.setText(Database.database.questionCategory.get(SubCategoryID).questions.get(QuestionID).getSolution());
+        catch (NullPointerException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }

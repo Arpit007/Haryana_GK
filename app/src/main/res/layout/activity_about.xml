@@ -19,18 +19,21 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         android:src="@drawable/logo"/>
-
+<LinearLayout
+    android:layout_width="350dp" android:layout_height="wrap_content"
+    android:background="@drawable/about_text_background_style"
+    android:layout_below="@id/imageView"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="50dp">
     <TextView
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/About_Text"
         android:id="@+id/textView"
-        android:layout_below="@id/imageView"
-        android:layout_marginTop="50dp"
-        android:textSize="20dp"
-        android:textAlignment="center"
-        android:background="@drawable/about_text_background_style"
-        android:layout_centerHorizontal="true" />
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:gravity="center" android:typeface="sans"/>
+    </LinearLayout>
     <Button
         android:id="@+id/FB"
         android:text="Developed By: Arpit Bhatnagar\nJoin on Facebook!"
@@ -38,7 +41,7 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" android:textSize="12dp"/>
+        android:layout_alignParentStart="true" android:textSize="12sp"/>
 
 
 </RelativeLayout>

@@ -8,11 +8,13 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/i"
+            android:src="@drawable/n"
             android:scaleType="centerCrop"/>
         <ListView
             android:id="@+id/main_content_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:divider="#00ffffff"></ListView>
+            android:scrollbars="none"
+            android:divider="#00ffffff" android:dividerHeight="20dp" android:paddingLeft="30dp"
+            android:paddingRight="30dp"/>
 </RelativeLayout>

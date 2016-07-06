@@ -39,9 +39,16 @@ public class SubContentActivity extends AppCompatActivity
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_list_item_1, Questions);
+                this, R.layout.sub_item, Questions);
         ListView subList=(ListView)findViewById(R.id.SubList);
-        subList.setAdapter(adapter);
+        try
+        {
+            subList.setAdapter(adapter);
+        }
+        catch (NullPointerException e)
+        {
+            e.printStackTrace();
+        }
 
 
         subList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

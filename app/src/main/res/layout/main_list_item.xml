@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="wrap_content"
-    android:paddingTop="10dp"
-    android:paddingRight="10dp"
-    android:paddingLeft="10dp"
-    android:layout_width="match_parent">
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:layout_width="match_parent">
     <ImageView
         android:id="@+id/main_list_item_image"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="160dp"
         android:scaleType="fitXY"
         />
     <TextView
         android:id="@+id/main_list_item_text"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:textSize="20dp"
-        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textColor="#504f4f"
+        android:gravity="center"
         android:background="@drawable/title_style"
         android:layout_below="@id/main_list_item_image"/>
 </RelativeLayout>

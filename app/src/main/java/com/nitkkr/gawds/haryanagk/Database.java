@@ -1,9 +1,5 @@
 package com.nitkkr.gawds.haryanagk;
 
-/**
- * Created by Home Laptop on 01-Jul-16.
- */
-
 import android.content.Context;
 
 import org.w3c.dom.Document;
@@ -71,10 +67,11 @@ public class Database
                             {
                                 Element element = (Element) CategoryNode;
                                 Name=element.getAttribute("Name");
-                                Description=element.getAttribute("Description");
+                                if(Name.equals(""))
+                                    Name=QuestionFileName;
                                 ImageFile="Images/"+element.getAttribute("ImageName");
 
-                                QuestionCategory Category=new QuestionCategory(Name,Description,ImageFile);
+                                QuestionCategory Category=new QuestionCategory(Name,ImageFile);
 
                                 NodeList QuestionList=element.getElementsByTagName("Item");
 
@@ -99,6 +96,7 @@ public class Database
                 {
                     e.printStackTrace();
                 }
+        String x="";
 
     }
 }
@@ -128,14 +126,12 @@ class QuestionCategory
 
     ArrayList<Question> questions;
     String Name;
-    String Description;
     String ImageFile;
 
-    public QuestionCategory(String Name, String Description, String ImageFile)
+    public QuestionCategory(String Name, String ImageFile)
     {
         questions=new ArrayList<>();
         this.Name=Name;
-        this.Description=Description;
         this.ImageFile=ImageFile;
     }
 
