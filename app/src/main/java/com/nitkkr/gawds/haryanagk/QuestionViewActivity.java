@@ -2,8 +2,10 @@ package com.nitkkr.gawds.haryanagk;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -81,6 +83,7 @@ public class QuestionViewActivity extends AppCompatActivity {
 
             questionText.setText(Database.database.questionCategory.get(SubCategoryID).questions.get(QuestionID).getProblem());
             answerText.setText(getResources().getString(R.string.Ans)+": "+ Database.database.questionCategory.get(SubCategoryID).questions.get(QuestionID).getSolution());
+
         }
         catch (IOException e)
         {

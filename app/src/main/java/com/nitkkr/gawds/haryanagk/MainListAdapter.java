@@ -49,7 +49,8 @@ public class MainListAdapter extends ArrayAdapter<String>
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = mInflater.inflate(mViewResourceId, null);
+        if (convertView==null)
+            convertView = mInflater.inflate(mViewResourceId, null);
 
         ImageView iv = (ImageView)convertView.findViewById(R.id.main_list_item_image);
         try

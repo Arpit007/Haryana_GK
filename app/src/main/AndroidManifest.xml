@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nitkkr.gawds.haryanagk">
+          package="com.nitkkr.gawds.haryanagk">
+
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -14,64 +15,85 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".AboutActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AboutTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AboutTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nitkkr.gawds.haryanagk.MainActivity"/>
-            <intent-filter>
-                <action android:name="com.HaryanaGK.About" />
 
-                <category android:name="android.intent.category.DEFAULT" />
+            <intent-filter>
+                <action android:name="com.HaryanaGK.About"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".ContentActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/MainItemTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/MainItemTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nitkkr.gawds.haryanagk.MainActivity"/>
-            <intent-filter>
-                <action android:name="com.HaryanaGK.GK" />
 
-                <category android:name="android.intent.category.DEFAULT" />
+            <intent-filter>
+                <action android:name="com.HaryanaGK.GK"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".SubContentActivity"
             android:parentActivityName=".ContentActivity"
-            android:theme="@style/subItemTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/subItemTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nitkkr.gawds.haryanagk.ContentActivity"/>
-            <intent-filter>
-                <action android:name="com.HaryanaGK.SubContent" />
 
-                <category android:name="android.intent.category.DEFAULT" />
+            <intent-filter>
+                <action android:name="com.HaryanaGK.SubContent"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuestionViewActivity"
-                  android:theme="@style/QuestionTheme"
+        <activity
+            android:name=".QuestionViewActivity"
+            android:parentActivityName=".SubContentActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".SubContentActivity">
+            android:theme="@style/QuestionTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nitkkr.gawds.haryanagk.SubContentActivity"/>
-            <intent-filter>
-                <action android:name="com.HaryanaGK.Question" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter></activity>
+            <intent-filter>
+                <action android:name="com.HaryanaGK.Question"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".CatQuestions"
+                  android:parentActivityName=".ContentActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/QuestionTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitkkr.gawds.haryanagk.ContentActivity"/>
+
+            <intent-filter>
+                <action android:name="com.HaryanaGK.CatQuestions"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
+
 </manifest>

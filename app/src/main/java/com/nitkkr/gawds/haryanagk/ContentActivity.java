@@ -29,9 +29,19 @@ public class ContentActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent SubContent=new Intent("com.HaryanaGK.SubContent");
-                SubContent.putExtra("SubCategoryID",position);
-                startActivity(SubContent);
+                if(Database.database.questionCategory.get(position).questions.get(0).getProblem().equals(""))
+                {
+                    Intent SubContent = new Intent("com.HaryanaGK.CatQuestions");
+                    SubContent.putExtra("SubCategoryID", position);
+                    SubContent.putExtra("QuestionID",0);
+                    startActivity(SubContent);
+                }
+                else
+                {
+                    Intent SubContent = new Intent("com.HaryanaGK.SubContent");
+                    SubContent.putExtra("SubCategoryID", position);
+                    startActivity(SubContent);
+                }
             }
         });
     }

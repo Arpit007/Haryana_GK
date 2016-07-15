@@ -3,7 +3,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.nitkkr.gawds.haryanagk.QuestionViewActivity"
+                tools:context="com.nitkkr.gawds.haryanagk.CatQuestions"
                 android:background="#303e74"
                 android:clickable="false">
     <ImageView
