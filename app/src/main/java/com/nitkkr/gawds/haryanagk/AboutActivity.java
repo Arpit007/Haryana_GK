@@ -31,6 +31,6 @@ public class AboutActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        //TODO: Set About Text
     }
 }

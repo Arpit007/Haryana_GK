@@ -14,129 +14,132 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class Database
 {
-    Context context;
-    String FileName= "Questions/database.xml";
-    public ArrayList<QuestionCategory> questionCategory;
+	Context context;
+	String FileName = "Questions/database.xml";
+	public ArrayList<QuestionCategory> questionCategory;
 
-    static Database database;
+	static Database database;
 
-    public Database(Context context)
-    {
-        this.context=context;
-        database=this;
-        questionCategory=new ArrayList<>();
-        getData();
-    }
+	public Database(Context context)
+	{
+		this.context = context;
+		database = this;
+		questionCategory = new ArrayList<>();
+		getData();
+	}
 
-    private void getData()
-    {
-                try
-                {
-                    DocumentBuilderFactory dbFactory
-                            = DocumentBuilderFactory.newInstance();
-                    DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-                    Document doc = dBuilder.parse(context.getAssets().open(FileName));
-                    doc.getDocumentElement().normalize();
+	private void getData()
+	{
+		try
+		{
+			DocumentBuilderFactory dbFactory
+					= DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(context.getAssets().open(FileName));
+			doc.getDocumentElement().normalize();
 
-                    NodeList fileList=doc.getElementsByTagName("FileName");
+			NodeList fileList = doc.getElementsByTagName("FileName");
 
-                    for(int FileIndex=0;FileIndex<fileList.getLength();FileIndex++)
-                    {
-                        String QuestionFileName=null;
-                        Node FileNode=fileList.item(FileIndex);
+			for (int FileIndex = 0; FileIndex < fileList.getLength(); FileIndex++)
+			{
+				String QuestionFileName = null;
+				Node FileNode = fileList.item(FileIndex);
 
-                        if(FileNode.getNodeType()==Node.ELEMENT_NODE)
-                        {
-                            Element element=(Element)FileNode;
-                            QuestionFileName=element.getChildNodes().item(0).getTextContent();
-                        }
+				if (FileNode.getNodeType() == Node.ELEMENT_NODE)
+				{
+					Element element = (Element) FileNode;
+					QuestionFileName = element.getChildNodes().item(0).getTextContent();
+				}
 
-                        if(QuestionFileName!=null)
-                        {
-                            DocumentBuilderFactory dataFactory
-                                    = DocumentBuilderFactory.newInstance();
-                            DocumentBuilder dataBuilder = dataFactory.newDocumentBuilder();
-                            Document datadoc = dataBuilder.parse(context.getAssets().open("Questions/"+QuestionFileName));
-                            datadoc.getDocumentElement().normalize();
+				if (QuestionFileName != null)
+				{
+					DocumentBuilderFactory dataFactory
+							= DocumentBuilderFactory.newInstance();
+					DocumentBuilder dataBuilder = dataFactory.newDocumentBuilder();
+					Document datadoc = dataBuilder.parse(context.getAssets().open("Questions/" + QuestionFileName));
+					datadoc.getDocumentElement().normalize();
 
-                            String Name,Description,ImageFile;
+					String Name, ImageFile;
 
-                            Node CategoryNode=datadoc.getChildNodes().item(0);
+					Node CategoryNode = datadoc.getChildNodes().item(0);
 
-                            if (CategoryNode.getNodeType() == Node.ELEMENT_NODE)
-                            {
-                                Element element = (Element) CategoryNode;
-                                Name=element.getAttribute("Name");
-                                if(Name.equals(""))
-                                    Name=QuestionFileName;
-                                ImageFile="Images/"+element.getAttribute("ImageName");
+					if (CategoryNode.getNodeType() == Node.ELEMENT_NODE)
+					{
+						Element element = (Element) CategoryNode;
+						Name = element.getAttribute("Name");
+						if (Name.equals(""))
+						{
+							Name = QuestionFileName;
+						}
+						ImageFile = "Images/" + element.getAttribute("ImageName");
 
-                                QuestionCategory Category=new QuestionCategory(Name,ImageFile);
+						QuestionCategory Category = new QuestionCategory(Name, ImageFile);
 
-                                NodeList QuestionList=element.getElementsByTagName("Item");
+						NodeList QuestionList = element.getElementsByTagName("Item");
 
-                                String Question, Answer;
+						String Question, Answer;
 
-                                for(int x=0;x<QuestionList.getLength();x++)
-                                {
-                                    Node itemNode=QuestionList.item(x);
-                                    if(itemNode.getNodeType()==Node.ELEMENT_NODE)
-                                    {
-                                        Element myelement=(Element)itemNode;
-                                        Question=myelement.getElementsByTagName("Question").item(0).getTextContent().trim().replaceAll(" +", " ");
-                                        Answer=(myelement.getElementsByTagName("Answer").item(0).getTextContent()).trim().replaceAll(" +", " ");
-                                        Category.AddQuestion(Question,Answer);
-                                    }
-                                }
-                                questionCategory.add(Category);
-                            }
-                        }
-                    }
-                } catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-        String x="";
-
-    }
+						for (int x = 0; x < QuestionList.getLength(); x++)
+						{
+							Node itemNode = QuestionList.item(x);
+							if (itemNode.getNodeType() == Node.ELEMENT_NODE)
+							{
+								Element myelement = (Element) itemNode;
+								Question = myelement.getElementsByTagName("Question").item(0).getTextContent().trim().replaceAll(" +", " ");
+								Answer = ( myelement.getElementsByTagName("Answer").item(0).getTextContent() ).trim().replaceAll(" +", " ");
+								Category.AddQuestion(Question, Answer);
+							}
+						}
+						questionCategory.add(Category);
+					}
+				}
+			}
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
 }
 
 
 class QuestionCategory
 {
-    class Question
-    {
-        String Problem;
-        String Solution;
+	class Question
+	{
+		private String Problem;
+		private String Solution;
 
-        public Question(String Problem, String Solution)
-        {
-            this.Problem=Problem;
-            this.Solution=Solution;
-        }
+		public Question(String Problem, String Solution)
+		{
+			this.Problem = Problem;
+			this.Solution = Solution;
+		}
 
-        public String getProblem()
-        {
-            return Problem;
-        }
-        public String getSolution() {
-            return Solution;
-        }
-    }
+		public String getProblem()
+		{
+			return Problem;
+		}
 
-    ArrayList<Question> questions;
-    String Name;
-    String ImageFile;
+		public String getSolution()
+		{
+			return Solution;
+		}
+	}
 
-    public QuestionCategory(String Name, String ImageFile)
-    {
-        questions=new ArrayList<>();
-        this.Name=Name;
-        this.ImageFile=ImageFile;
-    }
+	ArrayList<Question> questions;
+	String Name;
+	String ImageFile;
 
-    public void AddQuestion(String Question, String Answer)
-    {
-        questions.add(new Question(Question,Answer));
-    }
+	public QuestionCategory(String Name, String ImageFile)
+	{
+		questions = new ArrayList<>();
+		this.Name = Name;
+		this.ImageFile = ImageFile;
+	}
+
+	public void AddQuestion(String Question, String Answer)
+	{
+		questions.add(new Question(Question, Answer));
+	}
 }

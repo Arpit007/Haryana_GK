@@ -6,6 +6,6 @@
     android:id="@+id/itemText"
     android:drawableLeft="@drawable/bullet"
     android:drawablePadding="8dp"
-    android:padding="5dp"
+    android:padding="10dp"
     android:textSize="18sp"
     android:text="List Item"/>

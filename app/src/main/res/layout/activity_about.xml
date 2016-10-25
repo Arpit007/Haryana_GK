@@ -35,13 +35,13 @@
         android:gravity="center" android:typeface="sans"/>
     </LinearLayout>
     <Button
-        android:id="@+id/FB"
+        android:id="@+id/FB" android:textAllCaps="false"
         android:text="Developed By: Arpit Bhatnagar\nJoin on Facebook!"
         android:background="#7cd4d4d4"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" android:textSize="12sp"/>
+        android:layout_alignParentStart="true" android:textSize="15sp"/>
 
 
 </RelativeLayout>

@@ -1,12 +1,16 @@
 package com.nitkkr.gawds.haryanagk;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    boolean exit=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
                     emailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     emailIntent.setType("vnd.android.cursor.item/email");
+                    //TODO: Check email ID once
                     emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[] {getResources().getString(R.string.email_address)});
                     startActivity(Intent.createChooser(emailIntent, "Send mail using..."));
                 }
@@ -44,5 +49,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(aboutIntent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        if(exit)
+            super.onBackPressed();
+        else
+        {
+            exit = true;
+            Toast.makeText(this,"Press Back Again to Exit",Toast.LENGTH_SHORT).show();
+            Handler handler=new Handler();
+            handler.postDelayed(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    exit = false;
+                }
+            },5000);
+        }
     }
 }

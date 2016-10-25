@@ -94,7 +94,6 @@
                 android:paddingRight="15dp"/>
         </ScrollView>
 
-
     </LinearLayout>
 
 </RelativeLayout>
